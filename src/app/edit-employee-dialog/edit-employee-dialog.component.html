@@ -1,0 +1,169 @@
+<div class="w-full p-5 bg-slate-500">
+  <h1 mat-dialog-title class="w-full text-2xl text-white font-semibold">
+    Edit Employee
+  </h1>
+  <div class="w-full" mat-dialog-content>
+    <form #employeeForm="ngForm" (ngSubmit)="onSubmit()">
+      <!-- First Name -->
+      <div class="my-1">
+        <label class="font-medium" for="firstName">First Name</label>
+        <input
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.firstName"
+          name="firstName"
+          #firstNameInput="ngModel"
+          required
+        />
+        <div
+          *ngIf="firstNameInput.invalid && firstNameInput.touched"
+          class="text-red-500"
+        >
+          First Name is required
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="my-1">
+        <label class="font-medium" for="lastName">Last Name</label>
+        <input
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.lastName"
+          name="lastName"
+          #lastNameInput="ngModel"
+          required
+        />
+        <div
+          *ngIf="lastNameInput.invalid && lastNameInput.touched"
+          class="text-red-500"
+        >
+          Last Name is required
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="my-1">
+        <label class="font-medium" for="email">Email</label>
+        <input
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.email"
+          name="email"
+          #emailInput="ngModel"
+          required
+          email
+        />
+        <div
+          *ngIf="emailInput.invalid && emailInput.touched"
+          class="text-red-500"
+        >
+          <div *ngIf="emailInput.errors?.['required']">Email is required</div>
+          <div *ngIf="emailInput.errors?.['email']">
+            Please enter a valid email
+          </div>
+        </div>
+      </div>
+
+      <!-- Birth Date -->
+      <div class="my-1">
+        <label class="font-medium" for="birthDate">Birth Date</label>
+        <input
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.birthDate"
+          name="birthDate"
+          #birthDateInput="ngModel"
+          required
+          type="date"
+        />
+        <div
+          *ngIf="birthDateInput.invalid && birthDateInput.touched"
+          class="text-red-500"
+        >
+          Birth Date is required
+        </div>
+      </div>
+
+      <!-- Basic Salary -->
+      <div class="my-1">
+        <label class="font-medium" for="basicSalary">Basic Salary</label>
+        <input
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.basicSalary"
+          name="basicSalary"
+          #basicSalaryInput="ngModel"
+          required
+          type="number"
+        />
+        <div
+          *ngIf="basicSalaryInput.invalid && basicSalaryInput.touched"
+          class="text-red-500"
+        >
+          Basic Salary is required
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="my-1">
+        <label class="font-medium" for="status">Status</label>
+        <select
+          class="border w-full rounded-md px-3 py-2"
+          [(ngModel)]="employee.status"
+          name="status"
+          #statusInput="ngModel"
+          required
+        >
+          <option [ngValue]="true">Active</option>
+          <option [ngValue]="false">Inactive</option>
+        </select>
+        <div
+          *ngIf="statusInput.invalid && statusInput.touched"
+          class="text-red-500"
+        >
+          Status is required
+        </div>
+      </div>
+
+      <!-- Group -->
+      <div class="my-1">
+        <label class="font-medium" for="group">Group</label>
+        <input
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.group"
+          name="group"
+          #groupInput="ngModel"
+          required
+        />
+        <div
+          *ngIf="groupInput.invalid && groupInput.touched"
+          class="text-red-500"
+        >
+          Group is required
+        </div>
+      </div>
+
+      <!-- Description -->
+      <div class="my-1">
+        <label class="font-medium" for="description">Description</label>
+        <textarea
+          class="w-full border rounded-md px-3 py-2"
+          [(ngModel)]="employee.description"
+          name="description"
+          #descriptionInput="ngModel"
+        ></textarea>
+      </div>
+
+      <div class="flex justify-between" mat-dialog-actions>
+        <button
+          class="bg-sky-300 hover:bg-sky-400 text-white py-2 px-5 rounded-xl"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+        <button
+          class="bg-sky-500 hover:bg-sky-600 text-white py-2 px-5 rounded-xl"
+          [disabled]="employeeForm.invalid"
+        >
+          Add
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

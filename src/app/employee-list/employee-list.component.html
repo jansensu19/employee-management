@@ -1,0 +1,105 @@
+<div class="flex flex-col bg-gray-900 p-3 sm:p-5 w-full h-full">
+  <div
+    class="flex flex-col items-center sm:flex-row w-full justify-between mx-3 mb-2 sm:mb-4"
+  >
+    <div class="w-full text-white text-2xl sm:text-4xl font-bold">
+      Employee List
+    </div>
+    <div class="flex w-full mt-2 sm:mr-0 mr-5 sm:mt-0">
+      <mat-form-field
+        appearance="outline"
+        class="rounded-xl w-full min-w-50 bg-white"
+        subscriptSizing="dynamic"
+      >
+        <input
+          matInput
+          [formControl]="searchInputControl"
+          [autocomplete]="'off'"
+          placeholder="Search ..."
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="flex flex-row mt-2 sm:mt-0 w-full">
+      <button
+        (click)="openAddEmployeeDialog()"
+        class="rounded-lg p-2 sm:p-3 mx-2 sm:mx-3 bg-sky-500 hover:bg-sky-600 text-white text-sm sm:text-base"
+      >
+        Add Employee
+      </button>
+      <div>
+        <button
+          [matMenuTriggerFor]="menu"
+          class="rounded-lg p-2 sm:p-3 mx-2 sm:mx-3 bg-sky-500 hover:bg-sky-600 text-white text-sm sm:text-base"
+        >
+          Sorting
+        </button>
+        <mat-menu #menu="matMenu">
+          <button
+            (click)="toggleSorting(true)"
+            class="hover:bg-slate-700 text-sm sm:text-base"
+            mat-menu-item
+          >
+            <mat-icon>expand_less</mat-icon>
+            <span>Ascending</span>
+          </button>
+          <button
+            (click)="toggleSorting(false)"
+            class="hover:bg-slate-700 text-sm sm:text-base"
+            mat-menu-item
+          >
+            <mat-icon>expand_more</mat-icon>
+            <span>Descending</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-600 p-0 rounded-xl w-full">
+    <div
+      class="grid grid-cols-5 gap-2 sm:gap-5 text-xs sm:text-sm md:text-base font-medium p-3 sm:p-6 rounded-t-xl bg-gray-700 text-gray-200"
+    >
+      <div>Name</div>
+      <div>Email</div>
+      <div>Birth Date</div>
+      <div>Status</div>
+      <div>Action</div>
+    </div>
+
+    <div
+      *ngFor="let item of paginatorEmployees; let i = index"
+      class="grid grid-cols-5 gap-2 sm:gap-5 px-3 py-2 sm:px-5 text-gray-100 mb-2 w-full hover:bg-gray-800"
+      (click)="openDetailEmployeeDialog(item)"
+    >
+      <div class="truncate">{{ item.firstName }} {{ item.lastName }}</div>
+      <div class="truncate">{{ item.email }}</div>
+      <div class="truncate">{{ convertISOToDateTime(item.birthDate) }}</div>
+      <div class="truncate">{{ item.status ? "Active" : "Inactive" }}</div>
+      <div class="flex flex-row">
+        <button
+          (click)="openEditEmployeeDialog(item); $event.stopPropagation()"
+        >
+          <mat-icon class="text-yellow-500 mx-2">edit</mat-icon>
+        </button>
+        <button (click)="deleteEmployee(i); $event.stopPropagation()">
+          <mat-icon class="text-red-500 mx-2">delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <mat-paginator
+      class="border border-slate mt-3 sm:mt-5"
+      [length]="filteredEmployees.length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPageChange($event)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+</div>
+
+<div>
+  <lib-toastify-toast-container></lib-toastify-toast-container>
+</div>

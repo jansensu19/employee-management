@@ -1,0 +1,76 @@
+<div class="bg-slate-300 w-full p-2 shadow-lg">
+  <h1 class="font-bold text-4xl text-nowrap">
+    Employee Detail
+    <span class="hidden sm:block"
+      >( {{ employee.firstName }} {{ employee.lastName }} )</span
+    >
+  </h1>
+  <div class="flex flex-col p-2">
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">UserName</span> :
+        {{ employee.username }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">FirstName</span> :
+        {{ employee.firstName }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">LastName</span> :
+        {{ employee.lastName }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">Email</span> : {{ employee.email }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">Birth Date</span> :
+        {{ convertISOToDateTime(employee.birthDate) }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">Basic Salary</span> : Rp.
+        {{ employee.basicSalary }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">Group</span> : {{ employee.group }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">Status</span> :
+        {{ employee.status ? "Active" : "Inactive" }}
+      </div>
+    </div>
+
+    <div class="my-1">
+      <div>
+        <span class="font-semibold text-xl">Description</span> :
+        {{ employee.description }}
+      </div>
+    </div>
+  </div>
+  <button
+    class="bg-sky-300 hover:bg-sky-400 text-white py-2 px-5 rounded-xl"
+    (click)="onCancel()"
+  >
+    Ok
+  </button>
+</div>

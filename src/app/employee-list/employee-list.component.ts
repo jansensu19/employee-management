@@ -105,11 +105,11 @@ export class EmployeeListComponent implements OnInit {
 
   toggleSorting(ascending: boolean) {
     if (ascending) {
-      this.employees.sort((a, b) => a.firstName.localeCompare(b.firstName));
+      this.paginatorEmployees.sort((a, b) => a.firstName.localeCompare(b.firstName));
     } else {
-      this.employees.sort((a, b) => b.firstName.localeCompare(a.firstName));
+      this.paginatorEmployees.sort((a, b) => b.firstName.localeCompare(a.firstName));
     }
-  }
+  }  
 
   openAddEmployeeDialog(): void {
     const dialogRef = this.dialog.open(AddEmployeeDialogComponent, {

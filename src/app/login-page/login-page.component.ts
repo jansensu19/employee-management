@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { AngularToastifyModule, ToastService } from 'angular-toastify';
-
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatInputModule, AngularToastifyModule],
+  imports: [CommonModule, FormsModule, MatInputModule, AngularToastifyModule,FormsModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })
@@ -16,7 +15,7 @@ export class LoginPageComponent implements OnInit {
   public username: string | undefined;
   public password: string | undefined;
   invalidLogin: boolean = false;
-
+  
   constructor(private router: Router, private toastify: ToastService) {}
 
   ngOnInit(): void {

@@ -12,11 +12,11 @@ Run `npm i` to install all library for this project
 
 ## Toastify
 
-Run `npm i angular-toastify` to make notifications works
+Run `npm i angular-toastify` to make notifications works (Important to works for the notifications)
 
 ## Login
 
-username `adinata` 
+username `peluangbaru` 
 password  `berjuang123!`
 
 ## Employee List Page

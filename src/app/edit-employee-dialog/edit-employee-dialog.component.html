@@ -1,14 +1,14 @@
-<div class="w-full p-5 bg-slate-500">
-  <h1 mat-dialog-title class="w-full text-2xl text-white font-semibold">
+<div class="w-full p-5 rounded-md bg-white">
+  <h1 mat-dialog-title class="w-full text-2xl font-semibold">
     Edit Employee
   </h1>
   <div class="w-full" mat-dialog-content>
     <form #employeeForm="ngForm" (ngSubmit)="onSubmit()">
       <!-- First Name -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="firstName">First Name</label>
         <input
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.firstName"
           name="firstName"
           #firstNameInput="ngModel"
@@ -23,10 +23,10 @@
       </div>
 
       <!-- Last Name -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="lastName">Last Name</label>
         <input
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.lastName"
           name="lastName"
           #lastNameInput="ngModel"
@@ -41,10 +41,10 @@
       </div>
 
       <!-- Email -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="email">Email</label>
         <input
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.email"
           name="email"
           #emailInput="ngModel"
@@ -66,7 +66,7 @@
       <div class="my-1">
         <label class="font-medium" for="birthDate">Birth Date</label>
         <input
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.birthDate"
           name="birthDate"
           #birthDateInput="ngModel"
@@ -82,10 +82,10 @@
       </div>
 
       <!-- Basic Salary -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="basicSalary">Basic Salary</label>
         <input
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.basicSalary"
           name="basicSalary"
           #basicSalaryInput="ngModel"
@@ -101,10 +101,10 @@
       </div>
 
       <!-- Status -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="status">Status</label>
         <select
-          class="border w-full rounded-md px-3 py-2"
+          class="border w-full border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.status"
           name="status"
           #statusInput="ngModel"
@@ -122,10 +122,10 @@
       </div>
 
       <!-- Group -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="group">Group</label>
         <input
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.group"
           name="group"
           #groupInput="ngModel"
@@ -140,10 +140,10 @@
       </div>
 
       <!-- Description -->
-      <div class="my-1">
+      <div class="my-2">
         <label class="font-medium" for="description">Description</label>
         <textarea
-          class="w-full border rounded-md px-3 py-2"
+          class="w-full border border-black rounded-md px-3 py-2"
           [(ngModel)]="employee.description"
           name="description"
           #descriptionInput="ngModel"

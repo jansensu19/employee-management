@@ -46,7 +46,7 @@ export class EmployeeListComponent implements OnInit {
   protected _unsubscribeAll: Subject<any> = new Subject<any>();
   public debounce = 500;
   public isAscendingOrder = true;
-  public pageSize = 10;
+  public pageSize = 13;
   public selectedRowIndex: number | null = null;
 
   constructor(
